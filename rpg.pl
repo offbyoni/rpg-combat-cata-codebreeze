@@ -1,5 +1,5 @@
 :- use_module(library(plunit)).
 :- load_test_files([make(all)]).
-character(health, 1000).
-character(level, 1).
-character(alive) :- character(health, X), X > 0.
+character(adam, level, 1).
+character(adam, health, 1000).
+character(N, alive) :- character(N, health, X), X > 0.
