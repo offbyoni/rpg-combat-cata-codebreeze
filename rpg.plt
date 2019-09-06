@@ -8,7 +8,7 @@ test('adam has 1000 health') :-
 test('adam has level 1') :-
           character(adam, level, 1).
 test('adam is alive') :-
-          character(adam, alive).
+          alive(adam).
 test('diana is dead') :-
-          character(diana, dead).
+          dead(diana).
 :- end_tests(character).
