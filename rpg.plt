@@ -9,12 +9,14 @@ health(bea, 0).
 health(charlie, 100).
 health(diana, 0).
 health(eric, 999).
+health(fiona, 10).
 
 damage(diana, adam, 100).
 damage(adam, charlie, 110).
 
 heal(adam, diana, 100).
 heal(adam, eric, 100).
+heal(diana, fiona, 10).
 
 
 % ====== tests ======
@@ -29,8 +31,10 @@ test('bea is dead') :-
           dead(bea).
 test('adam can be damaged') :-
           currenthealth(adam, 900).
-test('diana can be healed') :-
-          currenthealth(diana, 100).
+test('fiona can be healed') :-
+          currenthealth(fiona, 20).
+test('diana with 0 health cannot be healed') :-
+          currenthealth(diana, 0).
 test('charlie cannot take more damage than he has') :-
           currenthealth(charlie, 0).
 test('charlie is dead after taking more damage than he has') :-

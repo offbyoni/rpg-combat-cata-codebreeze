@@ -12,5 +12,11 @@ currenthealth(N, X) :-
 
 currenthealth(N, X) :-
     health(N, Y),
+    Y > 0,
     heal(_, N, Z),
     X is min(Y + Z, 1000).
+
+currenthealth(N, X) :-
+    health(N, 0),
+    heal(_, N, _),
+    X is 0.
