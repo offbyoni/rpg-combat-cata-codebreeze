@@ -23,27 +23,27 @@ test('new character adam has 1000 health') :-
           character(adam, 1000, _).
 test('new character adam has level 1') :-
           character(adam, _, 1).
-test('new character adam is alive') :-
+test('new character adam is alive', [nondet]) :-
           alive(adam).
 test('bea is dead because they have 0 health') :-
           dead(bea).
 :- end_tests('new characters').
 
 :- begin_tests('damaging characters').
-test('adam can be damaged') :-
+test('adam can be damaged', [nondet]) :-
           currentHealth(adam, 900).
-test('charlie cannot take more damage than their current health') :-
+test('charlie cannot take more damage than their current health', [nondet]) :-
           currentHealth(charlie, 0).
 test('charlie is dead after taking more damage than they have') :-
           dead(charlie).
 :- end_tests('damaging characters').
 
 :- begin_tests('healing characters').
-test('fiona can be healed') :-
+test('fiona can be healed', [nondet]) :-
           currentHealth(fiona, 20).
 test('diana with 0 health cannot be healed') :-
           currentHealth(diana, 0).
-test('eric cannot be healed above 1000 health') :-
+test('eric cannot be healed above 1000 health', [nondet]) :-
           currentHealth(eric, 1000).
 :- end_tests('healing characters').
 
