@@ -2,14 +2,12 @@
 :- include(rpg).
 
 % ====== facts ======
-level(adam, 1).
-
-initialHealth(adam, 1000).
-initialHealth(bea, 0).
-initialHealth(charlie, 100).
-initialHealth(diana, 0).
-initialHealth(eric, 999).
-initialHealth(fiona, 10).
+character(adam, 1000, 1).
+character(bea, 0, 1).
+character(charlie, 100, 1).
+character(diana, 0, 1).
+character(eric, 999, 1).
+character(fiona, 10, 1).
 
 damage(diana, adam, 100).
 damage(adam, charlie, 110).
@@ -22,9 +20,9 @@ heal(diana, fiona, 10).
 % ====== tests ======
 
 test('adam has 1000 health') :-
-          initialHealth(adam, 1000).
+          character(adam, 1000, _).
 test('adam has level 1') :-
-          level(adam, 1).
+          character(adam, _, 1).
 test('adam is alive') :-
           alive(adam).
 test('bea is dead') :-
